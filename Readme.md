@@ -8,7 +8,7 @@ Build Restful CRUD API for a simple Note-Taking application using Spring Boot, M
 
 2. Maven - 3.x.x
 
-3. Mysql - 8.x.x
+3. Mysql - 8.0.31-oracle
 
 ## Steps to Setup
 
