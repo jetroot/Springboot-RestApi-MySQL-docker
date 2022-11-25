@@ -1,45 +1,33 @@
-# Spring Boot, MySQL, JPA, Hibernate Rest API Tutorial
+# Spring Boot, MySQL, JPA, Hibernate Rest API, Docker, Unit Test Tutorial
 
-Build Restful CRUD API for a simple Note-Taking application using Spring Boot, Mysql, JPA and Hibernate.
+Build Restful CRUD API for a simple Note-Taking application using Spring Boot, Mysql, JPA and Hibernate with docker.
 
 ## Requirements
 
-1. Java - 1.8.x
+1. Java - 8
 
 2. Maven - 3.x.x
 
-3. Mysql - 5.x.x
+3. Mysql - 8.x.x
 
 ## Steps to Setup
 
 **1. Clone the application**
 
 ```bash
-git clone https://github.com/callicoder/spring-boot-mysql-rest-api-tutorial.git
+git clone git@github.com:jetroot/Springboot-RestApi-MySQL-docker.git
 ```
 
-**2. Create Mysql database**
+**2. Build and run the app using maven**
+
 ```bash
-create database notes_app
+mvn clean install
 ```
 
-**3. Change mysql username and password as per your installation**
-
-+ open `src/main/resources/application.properties`
-
-+ change `spring.datasource.username` and `spring.datasource.password` as per your mysql installation
-
-**4. Build and run the app using maven**
+**3. Build and run the app using maven**
 
 ```bash
-mvn package
-java -jar target/easy-notes-1.0.0.jar
-```
-
-Alternatively, you can run the app without packaging it using -
-
-```bash
-mvn spring-boot:run
+docker composer up
 ```
 
 The app will start running at <http://localhost:8080>.
@@ -58,10 +46,3 @@ The app defines following CRUD APIs.
     
     DELETE /api/notes/{noteId}
 
-You can test them using postman or any other rest client.
-
-## Learn more
-
-You can find the tutorial for this application on my blog -
-
-<https://www.callicoder.com/spring-boot-rest-api-tutorial-with-mysql-jpa-hibernate/>
