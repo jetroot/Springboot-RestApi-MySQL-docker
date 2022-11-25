@@ -1,0 +1,38 @@
+version: '3.9'
+
+services:
+  mysqldb:
+    container_name: notesdb
+    image: mysql:8.0.31-oracle
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=1234
+      - MYSQL_ROOT_PASSWORD=mypwd
+      - MYSQL_DATABASE=mydb
+    networks:
+      - lotus
+    restart: on-failure
+
+  web-app:
+    container_name: springboot-web
+    image: springboot-web
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080" 
+    depends_on:
+      - mysqldb
+    networks:
+      - lotus
+    environment:
+      - APP_MYSQL_DATASOURCE_URL=jdbc:mysql://notesdb:3306/mydb
+      - APP_MYSQL_USERNAME=user
+      - APP_MYSQL_PASSWORD=1234
+    restart: on-failure
+
+networks:
+  lotus:
+    name: lotus
