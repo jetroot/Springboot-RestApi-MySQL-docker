@@ -27,7 +27,7 @@ mvn clean install
 **3. Build and run the app using maven**
 
 ```bash
-docker composer up
+docker compose up
 ```
 
 The app will start running at <http://localhost:8080>.
